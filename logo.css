@@ -1,0 +1,22 @@
+body{
+    background-color: rgb(243, 240, 240);
+}
+.logo
+{
+    text-indent: -999999;
+    background-image: url(logo1.png);
+    width: 77px;
+    height: 75px;
+    float: left;
+    
+}
+.heading
+{
+    float: right;
+    margin-top:centre;
+    float:left;
+    font-size:x-large;
+    font-style: italic;
+    color:firebrick;
+
+}
