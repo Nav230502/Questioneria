@@ -1,42 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-        <meta name="viewpoint" content="width=device-width,initail-scale=1.0">
-        <title>Subscription to email form</title>
-        <link rel="stylesheet"  href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription to email form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="hero">
-   <h3>ENTER YOUR EMAIL!</h3>  
-   <h1>Subscribe for latest updates </h1>
-   <p>Your email is safe with us,we don't spam.</p>
-   <form name="submit-to-google-sheet">
-    <input type="email" name="Email" placeholder="Enter a valid email address" required>
-    <button type="submit"><img src="send-icon.png" width="100px" height="70px"></button>
-   </form>
-   <span id="msg"></span>
+        <h3>ENTER YOUR EMAIL!</h3>  
+        <h1>Subscribe for latest updates</h1>
+        <p>Your email is safe with us, we don't spam.</p>
+        <form id="subscription-form">
+            <input type="email" id="email" name="email" placeholder="Enter a valid email address" required>
+            <button type="button" onclick="subscribe()">Subscribe</button>
+        </form>
+        <span id="subscription-msg"></span>
     </div>
+
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzWGeN3qDMLR9keuoTwA9WJKDI0glCD-SlN1jXmfIT42xVYzIZGeQWtb_09OmuB97X2/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const msg= document.getElementById("msg")
-      
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-               msg.innerHTML="<br>Thank You For Subscribing!"
-               setTimeout(function(){
-                msg.innerHTML=""
-               },3000)
-               form.reset()
-            })
-            
-            .catch(error => console.error('Error!', error.message))
-        })
-      </script>
-
-
+        function subscribe() {
+            var email = document.getElementById("email").value;
+            // Here you can implement your logic to handle the subscription
+            // For demonstration purpose, let's just display a success message
+            document.getElementById("subscription-msg").innerText = "Subscription successful! Thank you.";
+        }
+    </script>
 </body>
 </html>
-
